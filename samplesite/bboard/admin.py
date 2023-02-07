@@ -15,3 +15,5 @@ admin.site.register(Rubric)
 
 
 
+
+
