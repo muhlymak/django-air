@@ -3,3 +3,6 @@ venv/
 samplesite/db.sqlite3
 .DS_Store
 *.pyc
+.DS_Store/
+__pycache__/
+__pycache__
