@@ -1,4 +1,5 @@
 from django.db import models
+from django.core import validators
 
 
 class Rubric(models.Model):
@@ -15,7 +16,7 @@ class Rubric(models.Model):
 
 class Bb(models.Model):
     rubric = models.ForeignKey('Rubric', null=True, on_delete=models.PROTECT, verbose_name='Рубрика')
-    title = models.CharField(max_length=50, verbose_name="Товар")
+    title = models.CharField(max_length=50, verbose_name="Товар", validators=[validators.RegexValidator(regex='^.{4,}$')], error_messages={'invalid': 'херня какая-то', 'blank': 'хуле пустое', 'null': 'тоже самое'})
     content = models.TextField(null=True, blank=True, verbose_name="Описание")
     price = models.FloatField(null=True, blank=True, verbose_name="Цена")
     published = models.DateTimeField(auto_now=True, db_index=True, verbose_name="Опубликовано")
